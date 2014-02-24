@@ -1,0 +1,32 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>爱消除</title>
+<style>
+div{margin:0px;padding:0px;}
+#mainDiv{width:343px;height:343px;background-color:black;position:relative;}
+#mainDiv div{width:49px;height:49px;position:absolute;}
+.beforeBegin{width: 100%;height: 350px;z-index: 1000;position:absolute;top:60;left: 0;
+			text-align: center;background-color: gray;
+			filter:alpha(opacity=50);/*IE*/  
+			opacity:0.5;/*Mozilla*/ };
+</style>
+</head>
+<body style="background-color:black;">
+<div align="center" id="pa">
+	<div style = "width:343px;height:60px;background-color:black;">
+		<span style="color:white;font-weight:bold;font-size:30;">得分：
+			<span id="iMark">0</span>
+		</span>
+	</div>
+	<div id="mainDiv"></div>
+	<div style = "width:324px;height:35px;background-color:black;margin-top:15px;" id="handler" align="left">
+		<div style = "width:90%;height:20px;background-color:green;float:left;"id="handleBar"></div>
+		<span id="iTime" style = "height:20px;color:white;">60'</span>
+	</div>
+</div>
+<script src="tt.js">
+</script>
+</body>
+</html>

@@ -27,7 +27,7 @@ def getHtmlByPyquery(tUrl):
         content = content.replace("\"","\"\"");
         #print content
         post = Post()
-        post.category = urllib.quote("段子") + ":段子"
+        post.category = urllib.quote("创意") + ":创意"
         post.post_author = "geekzone"
         post.post_title = title
         post.post_content = "\""+content+"\""
@@ -36,7 +36,10 @@ def getHtmlByPyquery(tUrl):
         
 if __name__ == '__main__':
     allposts = []
-    for i in range(20):
+    for i in range(5):
+        if i==0:
+            continue
+        print "第%s页" %i
         posts = getHtmlByPyquery("http://crege.net/page/%s" %i)
         allposts.extend(posts)
     p = Post2Csver("/home/lihan/桌面/1.csv")

@@ -32,7 +32,7 @@ class Post2Csver():
         list.append(title)
         for post in posts:
             dt = datetime.datetime.now()
-            post.post_date = dt.strftime('%Y-%m%-d %h:%M:%s')
+            post.post_date = dt.strftime('%Y-%m-%d %H:%M:%S')
             line = "%s,%s,%s,%s,%s,%s" %(post.post_date,post.post_status,post.post_title,post.post_content,post.post_author,post.category)
             list.append(line)
         content = "\n ".join(list)

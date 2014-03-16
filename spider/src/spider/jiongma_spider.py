@@ -2,7 +2,11 @@
 #encoding=utf-8
 import StringIO
 import pycurl
+import re
 import requests
+import urllib
+
+from component.post2csv import Post, Post2Csver
 
 
 def getHtml(url):
@@ -18,21 +22,35 @@ def getHtml(url):
     c.close()
 
 def getHtmlByPyquery(tUrl):
+    posts =[]
     from pyquery import PyQuery as pyq
     r = requests.get(tUrl)
     doc=pyq(r.text)
     lis = doc(".car-monthlisting li a")
-    lis = lis[0:500]
+    lis = lis[0:100]
     lis.reverse()
-    for li in lis[:2]:
+    i=1
+    for li in lis:
         link = pyq(li).attr("href")
         title =  pyq(li).text()
-        print "抓取文章(%s,link:%s)" %(title,link)
+        print "抓取文章_%s(%s,link:%s)" %(i,title,link)
         ir = requests.get(link)
         idoc = pyq(ir.text)
-        content = idoc("#content .entrybody").val()
-        print content
+        content = idoc("#content .entrybody").remove(".wumii-hook").remove("script").remove("ins").remove(".ds-thread").remove("#ds-ssr").remove("div").remove("#comments").html()
+        content = content.replace("\"","\"\"");
+        #print content
+        post = Post()
+        post.category = urllib.quote("notes") + ":段子"
+        post.post_author = "geekzone"
+        post.post_title = title
+        post.post_content = "\""+content+"\""
+        posts.append(post)
+        i=i+1
+    return posts
         
         
 if __name__=="__main__":
-    getHtmlByPyquery("http://dongde.in/archives/")
+    allposts = getHtmlByPyquery("http://dongde.in/archives/")
+    p = Post2Csver("/home/lihan/桌面/dongde.csv")
+    p.write(allposts)
+    print "succ"

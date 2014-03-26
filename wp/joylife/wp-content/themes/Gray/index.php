@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+   <!--
    <div class="hidden-xs" style="background:#4A525F; padding: 20px 10px; position:fixed; top:95px; left:50%; margin-left:-580px; width:200px;">
         <div>
             <img class="img-responsive" src="<?php echo get_option('mao10_fimg'); ?>" />
@@ -9,7 +10,8 @@
 			
         </div>
     </div>
-    <div class="col-md-10 col-md-offset-2" id="paddingleft">
+    -->
+    <div class="col-md-12" id="paddingleft">
      
 		<div class="row destacados">
 		<?php if (have_posts()) : while (have_posts()) : the_post(); ?>

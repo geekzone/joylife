@@ -34,7 +34,7 @@ if (is_home()){
 </head>
 <body>
 <div class="row">
-<div class="container" style="margin-top:65px;">
+<div class="container" style="margin-top:65px;padding-left:15px">
 	
 <nav id="top-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">

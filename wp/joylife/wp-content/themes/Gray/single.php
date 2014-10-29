@@ -18,10 +18,6 @@
    <?php the_content(); ?>
   </div>
   <div class="pzuodian">
-  					    		 <p style="color:#999999;">
-                                    感谢你的阅读，本文由 猫猫建站 版权所有，转载时请注明出处，违者必究，谢谢你的合作。 注明出处格式：
-                                    <?php the_author_meta( 'display_name'); ?>
-                                </p>
                                 <a href="<?php bloginfo('url'); ?>">
                                     <?php bloginfo( 'url'); ?>
                                 </a>
